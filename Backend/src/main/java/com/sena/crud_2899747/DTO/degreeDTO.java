@@ -1,28 +1,21 @@
 package com.sena.crud_2899747.DTO;
 
 public class degreeDTO {
-    private int degreeId;
+
     private String name;
-    private int durationYears;
+
+    private int duration_years;
+
     private String coordinator;
+
     private String faculty;
 
-    public degreeDTO() {}
 
-    public degreeDTO(int degreeId, String name, int durationYears, String coordinator, String faculty) {
-        this.degreeId = degreeId;
+    public degreeDTO(String name, int duration_years, String coordinator, String faculty) {
         this.name = name;
-        this.durationYears = durationYears;
         this.coordinator = coordinator;
         this.faculty = faculty;
-    }
-
-    public int getDegreeId() {
-        return degreeId;
-    }
-
-    public void setDegreeId(int degreeId) {
-        this.degreeId = degreeId;
+        this.duration_years = duration_years;
     }
 
     public String getName() {
@@ -34,12 +27,13 @@ public class degreeDTO {
     }
 
     public int getDurationYears() {
-        return durationYears;
+        return duration_years;
     }
 
-    public void setDurationYears(int durationYears) {
-        this.durationYears = durationYears;
+    public void setDurationYears(int duration_years) {
+        this.duration_years = duration_years;
     }
+
 
     public String getCoordinator() {
         return coordinator;

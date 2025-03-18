@@ -36,6 +36,8 @@ public class schedule {
     @Column(name = "end_time", nullable = false)
     private LocalTime endTime;
 
+    public schedule(){}
+
 
     public schedule(int scheduleId, String dayOfWeek, LocalTime startTime, LocalTime endTime) {
         this.scheduleId = scheduleId;

@@ -35,6 +35,8 @@ public class degree {
     @Column(name = "faculty",length = 100, nullable = false)
     private  String faculty;
 
+    public degree(){}
+
     public degree(int degree_id, String name, int duration_years, String coordinator, String faculty) {
         this.degree_id = degree_id;
         this.name = name;
@@ -43,11 +45,11 @@ public class degree {
         this.faculty = faculty;
     }
 
-    public int getDegree() {
+    public int getDegreeId() {
         return degree_id;
     }
 
-    public void setDegree(int degree_id) {
+    public void setDegreeId(int degree_id) {
         this.degree_id = degree_id;
     }
 
@@ -59,11 +61,11 @@ public class degree {
         this.name = name;
     }
 
-    public int getDuration_years() {
+    public int getDurationYears() {
         return duration_years;
     }
 
-    public void setDration_years(int duration_years) {
+    public void setDurationYears(int duration_years) {
         this.duration_years = duration_years;
     }
 
@@ -82,6 +84,5 @@ public class degree {
     public void setFaculty(String faculty) {
         this.faculty = faculty;
     }
-
 }  
 

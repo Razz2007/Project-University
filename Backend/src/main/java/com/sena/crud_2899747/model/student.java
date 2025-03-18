@@ -35,15 +35,15 @@ public class student {
     private String address;
 
     @ManyToOne
-    @JoinColumn(name = "degree_id")
-    private degree degree;
+    @JoinColumn(name = "degree_id", nullable = false)
+    private degree degreeId;
 
     // Constructor vacío
     public student() {}
 
     // Constructor con parámetros
     public student(int studentId, String firstName, String lastName, String birthDate, 
-                   String email, String phone, String address) {
+                   String email, String phone, String address, degree degreeId) {
         this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -51,9 +51,10 @@ public class student {
         this.email = email;
         this.phone = phone;
         this.address = address;
+        this.degreeId = degreeId;
     }
 
-    // Getters y Setters
+    // Getters y setters
     public int getStudentId() {
         return studentId;
     }
@@ -108,5 +109,13 @@ public class student {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public com.sena.crud_2899747.model.degree getDegreeId() {
+        return degreeId;
+    }
+
+    public void setDegreeId(degree degreeId) {
+        this.degreeId = degreeId;
     }
 }

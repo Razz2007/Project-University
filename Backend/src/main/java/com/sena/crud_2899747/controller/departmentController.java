@@ -2,10 +2,9 @@ package com.sena.crud_2899747.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sena.crud_2899747.DTO.degreeDTO;
+import com.sena.crud_2899747.DTO.departmentDTO;
 import com.sena.crud_2899747.DTO.responseDTO;
-
-import com.sena.crud_2899747.service.degreeService;
+import com.sena.crud_2899747.service.departmentService;
 
 
 
@@ -20,8 +19,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
-@RequestMapping("/degree")
-public class degreeController {
+@RequestMapping("/department")
+public class departmentController {
 
     /*
      * GET
@@ -30,18 +29,18 @@ public class degreeController {
      * DELETE
      */
     @Autowired
-    private degreeService degreeService;
+    private departmentService departmentService;
 
     @PostMapping("/")
-    public ResponseEntity<Object> registerDegree(@RequestBody degreeDTO degree) {
-        responseDTO respuesta = degreeService.save(degree);
+    public ResponseEntity<Object> registerDepartment(@RequestBody departmentDTO department) {
+        responseDTO respuesta = departmentService.save(department);
         return new ResponseEntity<>(respuesta, HttpStatus.OK);
     }
 
     @GetMapping("/")
-    public ResponseEntity<Object> getAllDegrees() {
-        var listaDegrees = degreeService.findAll();
-        return new ResponseEntity<>(listaDegrees, HttpStatus.OK);
+    public ResponseEntity<Object> getAllDepartments() {
+        var listaDepartments = departmentService.findAll();
+        return new ResponseEntity<>(listaDepartments, HttpStatus.OK);
     }
 
     /*
@@ -49,16 +48,16 @@ public class degreeController {
      * PathVariable=captura de información por la URL
      */
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getOneDegree(@PathVariable int id) {
-        var degree = degreeService.findById(id);
-        if (!degree.isPresent())
+    public ResponseEntity<Object> getOneDepartment(@PathVariable int id) {
+        var department = departmentService.findById(id);
+        if (!department.isPresent())
             return new ResponseEntity<>("", HttpStatus.NOT_FOUND);
-        return new ResponseEntity<>(degree, HttpStatus.OK);
+        return new ResponseEntity<>(department, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteDegree(@PathVariable int id) {
-        var message = degreeService.deleteDegree(id);
+    public ResponseEntity<Object> deleteDepartment(@PathVariable int id) {
+        var message = departmentService.deleteDepartment(id);
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 }
