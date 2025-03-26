@@ -2,12 +2,12 @@ package com.sena.crud_2899747.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sena.crud_2899747.DTO.degreeDTO;
 import com.sena.crud_2899747.DTO.responseDTO;
-
+import com.sena.crud_2899747.DTO.degreeDTO;
+import com.sena.crud_2899747.model.degree;
 import com.sena.crud_2899747.service.degreeService;
 
-
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
-@RequestMapping("/degree")
+@RequestMapping("/api/v1/degree")
 public class degreeController {
 
     /*
@@ -54,6 +54,12 @@ public class degreeController {
         if (!degree.isPresent())
             return new ResponseEntity<>("", HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(degree, HttpStatus.OK);
+    }
+
+    @GetMapping("/filter/{filter}")
+    public ResponseEntity<Object> getListDegreeForName(@PathVariable String filter) {
+        var degreeList = degreeService.getListDegreeForName(filter);
+        return new ResponseEntity<>(degreeList, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

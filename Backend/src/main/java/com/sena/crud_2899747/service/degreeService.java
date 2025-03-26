@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.sena.crud_2899747.DTO.degreeDTO;
 import com.sena.crud_2899747.DTO.responseDTO;
+import com.sena.crud_2899747.DTO.degreeDTO;
 import com.sena.crud_2899747.model.degree;
 import com.sena.crud_2899747.repository.Idegree;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +27,11 @@ public class degreeService {
     private Idegree data;
 
     public List<degree> findAll() {
-        return data.findAll();
+        return data.getListDegreeActive();
+    }
+
+    public List<degree> getListDegreeForName(String filter) {
+        return data.getListDegreeForName(filter);
     }
 
     public Optional<degree> findById(int id) {
@@ -33,13 +39,16 @@ public class degreeService {
     }
 
     public responseDTO deleteDegree(int id) {
-        if (!findById(id).isPresent()) {
+        Optional<degree> degree = findById(id);
+        if (!degree.isPresent()) {
             responseDTO respuesta = new responseDTO(
                     HttpStatus.OK.toString(),
-                    "El registro no existe");
+                    "The register does not exist");
             return respuesta;
         }
-        data.deleteById(id);
+        degree.get().setStatus(false);
+        data.save(degree.get());
+        
         responseDTO respuesta = new responseDTO(
                 HttpStatus.OK.toString(),
                 "Se eliminó correctamente");
@@ -56,7 +65,7 @@ public class degreeService {
                     "El nombre debe estar entre 1 y 50 caracteres");
             return respuesta;
         }
-        // otras condiciones que podrías agregar
+        
         degree degreeRegister = converToModel(degreeDTO);
         data.save(degreeRegister);
         responseDTO respuesta = new responseDTO(
@@ -67,11 +76,10 @@ public class degreeService {
 
     public degreeDTO convertToDTO(degree degree) {
         degreeDTO degreedto = new degreeDTO(
-            degree.getName(),
-            degree.getDurationYears(),
-            degree.getCoordinator(),
-            degree.getFaculty()
-        );
+                degree.getName(),
+                degree.getDurationYears(),
+                degree.getCoordinator(),
+                degree.getFaculty());
         return degreedto;
     }
 
@@ -81,7 +89,8 @@ public class degreeService {
                 degreeDTO.getName(),
                 degreeDTO.getDurationYears(),
                 degreeDTO.getCoordinator(),
-                degreeDTO.getFaculty());
+                degreeDTO.getFaculty(),
+                true);
         return degree;
     }
 }

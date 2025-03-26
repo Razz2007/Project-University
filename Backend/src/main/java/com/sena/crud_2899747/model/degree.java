@@ -35,14 +35,18 @@ public class degree {
     @Column(name = "faculty",length = 100, nullable = false)
     private  String faculty;
 
+    @Column(name="status",nullable =false, columnDefinition = "boolean default true ")
+    private boolean status;
+
     public degree(){}
 
-    public degree(int degree_id, String name, int duration_years, String coordinator, String faculty) {
+    public degree(int degree_id, String name, int duration_years, String coordinator, String faculty, boolean status) {
         this.degree_id = degree_id;
         this.name = name;
         this.duration_years = duration_years;
         this.coordinator = coordinator;
         this.faculty = faculty;
+        this.status = status;
     }
 
     public int getDegreeId() {
@@ -84,5 +88,12 @@ public class degree {
     public void setFaculty(String faculty) {
         this.faculty = faculty;
     }
+    public boolean getStatus() {
+        return status;
+     }
+  
+     public void setStatus(boolean status) {
+        this.status = status;
+     }
 }  
 
