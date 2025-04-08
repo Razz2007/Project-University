@@ -7,30 +7,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
     <div class="banner-nav">
         <div class="logo">
             <a href="">
-            <span>TECH</span>NOVA
+                <span>TECH</span>NOVA
             </a>
         </div>
         <nav class="nav-links">
-            <a href="#inicio">Inicio</a>
-            <a href="#carreras">Carreras</a>
+            <a href="index.html" class="active">Inicio</a>
+            <a href="degree.html">Grados</a>
             <a href="#investigacion">Investigación</a>
             <a href="#admision">Admisión</a>
             <a href="#contacto">Contacto</a>
         </nav>
     </div>
-
-    <div class="hero">
+    
+    <div id="inicio" class="hero">
         <h1>Innovación Tecnológica al Servicio del Futuro</h1>
         <p>Formamos los líderes tecnológicos que transformarán el mundo</p>
     </div>
-
-    <div class="container">
+    
+    <div id="programas" class="container">
+        <h2 class="section-title">Nuestros Programas</h2>
         <div class="cards">
             <div class="card">
                 <img src="img/image 1.jpg" alt="Ciencias de la Computación">
@@ -49,10 +49,13 @@
             </div>
         </div>
     </div>
-
     <div class="footer">
         <p>&copy; 2025 TechNova Universidad. Todos los derechos reservados.</p>
         <p>Formando innovadores tecnológicos desde 2020</p>
     </div>
+
+    <!-- Add the JavaScript at the end of the body -->
+    <script src="js/main.js"></script>
+
 </body>
 </html>

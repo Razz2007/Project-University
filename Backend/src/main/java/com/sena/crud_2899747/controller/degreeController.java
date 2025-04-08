@@ -60,7 +60,7 @@ public class degreeController {
     public ResponseEntity<Object> getListDegreeForName(@PathVariable String filter) {
         var degreeList = degreeService.getListDegreeForName(filter);
         return new ResponseEntity<>(degreeList, HttpStatus.OK);
-    }
+    }   
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteDegree(@PathVariable int id) {

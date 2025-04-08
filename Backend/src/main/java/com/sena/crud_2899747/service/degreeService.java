@@ -1,14 +1,11 @@
 package com.sena.crud_2899747.service;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
 import com.sena.crud_2899747.DTO.responseDTO;
 import com.sena.crud_2899747.DTO.degreeDTO;
 import com.sena.crud_2899747.model.degree;
 import com.sena.crud_2899747.repository.Idegree;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -49,8 +46,7 @@ public class degreeService {
         degree.get().setStatus(false);
         data.save(degree.get());
         
-        responseDTO respuesta = new responseDTO(
-                HttpStatus.OK.toString(),
+        responseDTO respuesta = new responseDTO(HttpStatus.OK.toString(),
                 "Se eliminó correctamente");
         return respuesta;
     }
