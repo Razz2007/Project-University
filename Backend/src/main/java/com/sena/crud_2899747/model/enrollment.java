@@ -1,14 +1,11 @@
 package com.sena.crud_2899747.model;
 
 import java.sql.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
@@ -18,16 +15,6 @@ public class enrollment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "enrollment_id")
     private int enrollmentId;
-
-      @ManyToOne
-    @JoinColumn(name = "student_id")
-    private student student; 
-
-
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private course course; 
-
 
     @Column(name = "enrollment_date", nullable = false)
     @Temporal(TemporalType.DATE)
@@ -39,14 +26,22 @@ public class enrollment {
     @Column(name = "grade", precision = 5, nullable = true)
     private Double grade;
 
-    @Column(name = "status", length = 20, nullable = false)
-    private String status;
+    @Column(name = "status_Enrollment", length = 20, nullable = false)
+    private String statusEnrollment;
 
-    public enrollment(int enrollmentId, int studentId, int courseId, Date enrollmentDate, String semester, Double grade, String status) {
+    @Column(name = "status", nullable = false, columnDefinition = "boolean default true")
+    private boolean status;
+
+    // Constructor vacío        
+    public enrollment() {
+    }
+
+    public enrollment(int enrollmentId, Date enrollmentDate, String semester, Double grade, String statusEnrollment, boolean status) {
         this.enrollmentId = enrollmentId;
         this.enrollmentDate = enrollmentDate;
         this.semester = semester;
         this.grade = grade;
+        this.statusEnrollment = statusEnrollment;
         this.status = status;
     }
 
@@ -83,11 +78,19 @@ public class enrollment {
         this.grade = grade;
     }
 
-    public String getStatus() {
+    public String getStatusEnrollment() {
+        return statusEnrollment;
+    }
+
+    public void setStatusEnrollment(String statusEnrollment) {
+        this.statusEnrollment = statusEnrollment;
+    }
+
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 }

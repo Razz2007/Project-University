@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>TechNova Universidad - Inscripciones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="banner-nav">
+        <div class="logo">
+            <a href="">
+                <span>TECH</span>NOVA
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="degree.html">Grados</a>
+            <a href="book.html">Libros</a>
+            <a href="classroom.html">Aulas</a>
+            <a href="course.html">Cursos</a>
+            <a href="department.html">Departamento</a>
+            <a href="enrollment.html" class="active">Inscripciones</a>
+            <a href="library.html">Librería</a>
+            <a href="professor.html">Profesores</a>
+            <a href="student.html">Estudiantes</a>
+            <a href="loan.html">Préstamos</a>
+        </nav>
+    </div>
+    
+    <div class="hero">
+        <h1>Inscripciones</h1>
+        <p>Consulta y registra nuevas inscripciones para los cursos universitarios.</p>
+    </div>
+
+    <!-- Contenedor de búsqueda -->
+    <div class="search-container">
+        <input type="text" id="search-enrollment" placeholder="Buscar inscripción...">
+    </div>
+
+    <!-- Contenedor de inscripciones -->
+    <div class="container">
+        <div id="active-enrollments" class="tab-content active">
+            <h2 class="section-title">Inscripciones Activas</h2>
+            <!-- Aquí se agregarán las tarjetas de inscripciones activas -->
+        </div>
+        
+        <div id="completed-enrollments" class="tab-content">
+            <h2 class="section-title">Inscripciones Completadas</h2>
+            <!-- Aquí se agregarán las inscripciones completadas -->
+        </div>
+        
+        <div id="canceled-enrollments" class="tab-content">
+            <h2 class="section-title">Inscripciones Canceladas</h2>
+            <!-- Aquí se agregarán las inscripciones canceladas -->
+        </div>
+        
+        <!-- Formulario de inscripción -->
+        <h2 class="section-title">Registrar Nueva Inscripción</h2>
+        <div class="form-container">
+            <h3 class="form-title">Formulario de Inscripción</h3>
+            <form id="enrollment-form">
+                <div class="form-group">
+                    <label for="enrollment-semester">Semestre</label>
+                    <input type="text" id="enrollment-semester" name="enrollment-semester" required maxlength="20" placeholder="Ingrese el semestre">
+                </div>
+                
+                <div class="form-group">
+                    <label for="enrollment-date">Fecha de Inscripción</label>
+                    <input type="date" id="enrollment-date" name="enrollment-date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="enrollment-grade">Calificación</label>
+                    <input type="number" id="enrollment-grade" name="enrollment-grade" required min="0" max="5" step="0.1" placeholder="Ingrese la calificación">
+                </div>
+                
+                <div class="form-group">
+                    <label for="enrollment-status">Estado</label>
+                    <select id="enrollment-status" name="enrollment-status" required>
+                        <option value="ACTIVE">Activo</option>
+                        <option value="IN_PROGRESS">En progreso</option>
+                        <option value="COMPLETED">Completado</option>
+                        <option value="CANCELED">Cancelado</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-button">Registrar Inscripción</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 TECHNOVA. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/Enrollment.js"></script>
+</body>
+</html>

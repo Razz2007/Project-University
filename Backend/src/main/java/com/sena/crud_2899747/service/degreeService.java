@@ -1,4 +1,5 @@
 package com.sena.crud_2899747.service;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -6,20 +7,12 @@ import com.sena.crud_2899747.DTO.responseDTO;
 import com.sena.crud_2899747.DTO.degreeDTO;
 import com.sena.crud_2899747.model.degree;
 import com.sena.crud_2899747.repository.Idegree;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class degreeService {
 
-    /*
-     * save
-     * findAll
-     * findById
-     * Delete
-     */
-    /* establish connection with the interface */
     @Autowired
     private Idegree data;
 
@@ -28,7 +21,7 @@ public class degreeService {
     }
 
     public List<degree> getListDegreeForName(String filter) {
-        return data.getListDegreeForName(filter);
+        return data.findByNameContainingIgnoreCase(filter);
     }
 
     public Optional<degree> findById(int id) {
@@ -38,55 +31,74 @@ public class degreeService {
     public responseDTO deleteDegree(int id) {
         Optional<degree> degree = findById(id);
         if (!degree.isPresent()) {
-            responseDTO respuesta = new responseDTO(
-                    HttpStatus.OK.toString(),
-                    "The register does not exist");
-            return respuesta;
+            return new responseDTO(
+                    HttpStatus.NOT_FOUND.toString(),
+                    "Error: El grado académico no existe");
         }
-        degree.get().setStatus(false);
-        data.save(degree.get());
         
-        responseDTO respuesta = new responseDTO(HttpStatus.OK.toString(),
-                "Se eliminó correctamente");
-        return respuesta;
+        data.deleteById(id); // Ahora realmente eliminamos el registro
+        
+        return new responseDTO(HttpStatus.OK.toString(),
+                "Grado académico eliminado correctamente");
     }
 
-    // register and update
     public responseDTO save(degreeDTO degreeDTO) {
-        // validación longitud del nombre
         if (degreeDTO.getName().length() < 1 ||
                 degreeDTO.getName().length() > 50) {
-            responseDTO respuesta = new responseDTO(
+            return new responseDTO(
                     HttpStatus.BAD_REQUEST.toString(),
                     "El nombre debe estar entre 1 y 50 caracteres");
-            return respuesta;
         }
         
         degree degreeRegister = converToModel(degreeDTO);
         data.save(degreeRegister);
-        responseDTO respuesta = new responseDTO(
+        return new responseDTO(
                 HttpStatus.OK.toString(),
-                "Se guardó correctamente");
-        return respuesta;
+                "Grado académico guardado correctamente");
+    }
+
+    public responseDTO updateDegree(int id, degreeDTO dto) {
+        Optional<degree> degreeOpt = data.findById(id);
+        if (!degreeOpt.isPresent()) {
+            return new responseDTO(
+                    HttpStatus.NOT_FOUND.toString(),
+                    "Error: El grado académico con ID " + id + " no existe");
+        }
+    
+        if (dto.getName().length() < 1 || dto.getName().length() > 50) {
+            return new responseDTO(
+                    HttpStatus.BAD_REQUEST.toString(),
+                    "El nombre debe estar entre 1 y 50 caracteres");
+        }
+    
+        degree existingDegree = degreeOpt.get();
+        existingDegree.setName(dto.getName());
+        existingDegree.setDuration_years(dto.getDuration_years());
+        existingDegree.setCoordinator(dto.getCoordinator());
+        existingDegree.setFaculty(dto.getFaculty());
+
+        data.save(existingDegree);
+    
+        return new responseDTO(
+                HttpStatus.OK.toString(),
+                "Grado académico actualizado correctamente");
     }
 
     public degreeDTO convertToDTO(degree degree) {
-        degreeDTO degreedto = new degreeDTO(
+        return new degreeDTO(
                 degree.getName(),
-                degree.getDurationYears(),
+                degree.getDuration_years(),
                 degree.getCoordinator(),
                 degree.getFaculty());
-        return degreedto;
     }
 
     public degree converToModel(degreeDTO degreeDTO) {
-        degree degree = new degree(
+        return new degree(
                 0,
                 degreeDTO.getName(),
-                degreeDTO.getDurationYears(),
+                degreeDTO.getDuration_years(),
                 degreeDTO.getCoordinator(),
                 degreeDTO.getFaculty(),
                 true);
-        return degree;
     }
 }

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>TechNova Universidad - Profesores</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="banner-nav">
+        <div class="logo">
+            <a href="">
+                <span>TECH</span>NOVA
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="degree.html">Grados</a>
+            <a href="book.html">Libros</a>
+            <a href="classroom.html">Aulas</a>
+            <a href="course.html">Cursos</a>
+            <a href="department.html">Departamento</a>
+            <a href="enrollment.html">Inscripciones</a>
+            <a href="library.html">Librería</a>
+            <a href="professor.html" class="active">Profesores</a>
+            <a href="student.html">Estudiantes</a>
+            <a href="loan.html">Préstamos</a>
+        </nav>
+    </div>
+    
+    <div class="hero">
+        <h1>Profesores</h1>
+        <p>Explora la lista de profesores registrados y añade nuevos registros.</p>
+    </div>
+
+    <!-- Contenedor de búsqueda -->
+    <div class="search-container">
+        <input type="text" id="search-professor" placeholder="Buscar profesor por nombre o especialidad...">
+        <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
+    </div>
+
+    <!-- Contenedor donde se mostrarán los profesores -->
+    <div class="container">      
+        <h2 class="section-title">Lista de Profesores</h2>
+        <div id="professors-list">
+            <!-- Aquí se agregarán las tarjetas de los profesores -->
+        </div>
+        
+        <!-- Formulario de registro -->
+        <h2 class="section-title">Agregar Nuevo Profesor</h2>
+        <div class="form-container">
+            <h3 class="form-title">Formulario de Registro de Profesor</h3>
+            <form id="professor-form">
+                <div class="form-group">
+                    <label for="professor-firstname">Nombre</label>
+                    <input type="text" id="professor-firstname" name="professor-firstname" required maxlength="50" placeholder="Ingrese el nombre">
+                </div>                
+                <div class="form-group">
+                    <label for="professor-lastname">Apellido</label>
+                    <input type="text" id="professor-lastname" name="professor-lastname" required maxlength="50" placeholder="Ingrese el apellido">
+                </div>
+                <div class="form-group">
+                    <label for="professor-specialty">Especialidad</label>
+                    <input type="text" id="professor-specialty" name="professor-specialty" required maxlength="100" placeholder="Ingrese la especialidad">
+                </div>
+                <div class="form-group">
+                    <label for="professor-hiredate">Fecha de Contratación</label>
+                    <input type="date" id="professor-hiredate" name="professor-hiredate" required>
+                </div>
+                <div class="form-group">
+                    <label for="professor-email">Correo Electrónico</label>
+                    <input type="email" id="professor-email" name="professor-email" required maxlength="100" placeholder="Ingrese el correo">
+                </div>
+                <div class="form-group">
+                    <label for="professor-phone">Teléfono</label>
+                    <input type="text" id="professor-phone" name="professor-phone" required maxlength="15" placeholder="Ingrese el teléfono">
+                </div>
+                <div class="form-group">
+                    <label for="professor-salary">Salario</label>
+                    <input type="number" id="professor-salary" name="professor-salary" required step="0.01" min="0" placeholder="Ingrese el salario">
+                </div>
+                <div class="form-group">
+                    <label for="professor-department">Departamento</label>
+                    <select id="professor-department" name="professor-department" required>
+                        <option value="">Seleccione un departamento</option>
+                        <!-- Aquí se agregarán opciones dinámicamente -->
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-button">Agregar Profesor</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 TECHNOVA. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/Professor.js"></script> <!-- Vincula tu archivo JavaScript -->
+</body>
+</html>

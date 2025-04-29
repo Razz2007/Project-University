@@ -4,15 +4,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sena.crud_2899747.DTO.responseDTO;
 import com.sena.crud_2899747.DTO.degreeDTO;
-import com.sena.crud_2899747.model.degree;
 import com.sena.crud_2899747.service.degreeService;
-
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,7 +30,7 @@ public class degreeController {
     @Autowired
     private degreeService degreeService;
 
-    @PostMapping("/")
+    @PostMapping("/")   
     public ResponseEntity<Object> registerDegree(@RequestBody degreeDTO degree) {
         responseDTO respuesta = degreeService.save(degree);
         return new ResponseEntity<>(respuesta, HttpStatus.OK);
@@ -60,11 +58,17 @@ public class degreeController {
     public ResponseEntity<Object> getListDegreeForName(@PathVariable String filter) {
         var degreeList = degreeService.getListDegreeForName(filter);
         return new ResponseEntity<>(degreeList, HttpStatus.OK);
-    }   
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteDegree(@PathVariable int id) {
-        var message = degreeService.deleteDegree(id);
-        return new ResponseEntity<>(message, HttpStatus.OK);
+        responseDTO respuesta = degreeService.deleteDegree(id);
+        return new ResponseEntity<>(respuesta, HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateDegree(@PathVariable int id, @RequestBody degreeDTO dto) {
+        responseDTO respuesta = degreeService.updateDegree(id, dto);
+        return new ResponseEntity<>(respuesta, HttpStatus.OK);
     }
 }

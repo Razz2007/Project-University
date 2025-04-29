@@ -44,11 +44,13 @@ public class professor {
 
   @ManyToOne
     @JoinColumn(name = "department_id")
-    private department department;
+    private department departmentId;
 
-
+    public professor() {
+    }
+    
     public professor(int professorId, String firstName, String lastName, String specialty, Date hireDate,
-            String email, String phone, BigDecimal salary) {
+            String email, String phone, BigDecimal salary, department departmentId) {
         this.professorId = professorId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -57,6 +59,7 @@ public class professor {
         this.email = email;
         this.phone = phone;
         this.salary = salary;
+        this.departmentId = departmentId;   
     }
 
     public int getProfessorId() {
@@ -122,4 +125,12 @@ public class professor {
     public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
+    public department getDepartmentId() {
+        return departmentId;
+    }
+    public void setDepartmentId(department departmentId) {
+        this.departmentId = departmentId;
+    }
+
+
 }

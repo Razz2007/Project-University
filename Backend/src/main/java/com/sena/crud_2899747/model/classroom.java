@@ -14,7 +14,7 @@ public class classroom {
     private int classroom_id;
 
     @Column(name = "name_classroom",length = 50, nullable = false)
-    private String name_classroom;
+    private String nameClassroom;
 
     @Column(name = "building",length = 50, nullable = false)
     private  int building;
@@ -27,10 +27,15 @@ public class classroom {
 
     @Column(name = "has_projector",length = 1, nullable = false)
     private  Byte has_projector;
+
+    @Column(name="status",nullable =false, columnDefinition = "boolean default true ")
+    private boolean status;
     
-    public classroom(int classroom_id, String name_classroom, int building, int capacity, String type, Byte has_projector) {
+    public classroom() {
+    }
+    public classroom(int classroom_id, String name_classroom, int building, int capacity, String type, Byte has_projector, boolean status) {
         this.classroom_id = classroom_id;
-        this.name_classroom = name_classroom;
+        this.nameClassroom = name_classroom;
         this.building = building;
         this.capacity = capacity;
         this.type = type;
@@ -46,11 +51,11 @@ public class classroom {
     }
 
     public String getName_classroom() {
-        return name_classroom;
+        return nameClassroom;
     }
 
     public void setName_classroom(String name_classroom) {
-        this.name_classroom = name_classroom;
+        this.nameClassroom = name_classroom;
     }
 
     public int getBuilding() {
@@ -83,5 +88,12 @@ public class classroom {
 
     public void setHas_projector(Byte has_projector) {
         this.has_projector = has_projector;
+    }
+    public boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

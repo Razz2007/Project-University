@@ -3,7 +3,7 @@ package com.sena.crud_2899747.DTO;
 import com.sena.crud_2899747.model.degree;
 
 public class studentDTO {
-
+    private int studentId;
     private String firstName;
     private String lastName;
     private String birthDate;
@@ -13,8 +13,9 @@ public class studentDTO {
     private degree degreeId;
 
     // Constructor con parámetros
-    public studentDTO(String firstName, String lastName, String birthDate, String email, String phone,
+    public studentDTO(int studentId, String firstName, String lastName, String birthDate, String email, String phone,
                       String address, degree degreeId) {
+        this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
@@ -24,7 +25,16 @@ public class studentDTO {
         this.degreeId = degreeId;
     }
 
+
     // Getters y setters
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+    
     public String getFirstName() {
         return firstName;
     }

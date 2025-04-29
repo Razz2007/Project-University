@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>TechNova Universidad - Biblioteca</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="banner-nav">
+        <div class="logo">
+            <a href="">
+                <span>TECH</span>NOVA
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="degree.html">Grados</a>
+            <a href="book.html" class="active">Libros</a>
+            <a href="classroom.html">Aulas</a>
+            <a href="course.html">Cursos</a>
+            <a href="department.html">Departamento</a>
+            <a href="enrollment.html">Inscripciones</a>
+            <a href="library.html">Librería</a>
+            <a href="professor.html">Profesores</a>
+            <a href="student.html">Estudiantes</a>
+            <a href="loan.html">Préstamos</a>
+        </nav>
+    </div>
+    
+    <div class="hero">
+        <h1>Biblioteca</h1>
+        <p>Consulta la lista de libros disponibles y agrega nuevos títulos.</p>
+    </div>
+
+    <!-- Contenedor de búsqueda -->
+    <div class="search-container">
+        <input type="text" id="search-book" placeholder="Buscar libro por título o autor...">
+        <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
+    </div>
+
+    <!-- Contenedor donde se mostrarán los libros -->
+    <div class="container">      
+        <h2 class="section-title">Lista de Libros</h2>
+        <div id="books-list">
+            <!-- Aquí se agregarán las tarjetas de los libros -->
+        </div>
+        
+        <!-- Formulario de registro -->
+        <h2 class="section-title">Agregar Nuevo Libro</h2>
+        <div class="form-container">
+            <h3 class="form-title">Formulario de Registro de Libro</h3>
+            <form id="book-form">
+                <div class="form-group">
+                    <label for="book-title">Título</label>
+                    <input type="text" id="book-title" name="book-title" required maxlength="100" placeholder="Ingrese el título del libro">
+                </div>                
+                <div class="form-group">
+                    <label for="book-author">Autor</label>
+                    <input type="text" id="book-author" name="book-author" required maxlength="100" placeholder="Ingrese el nombre del autor">
+                </div>
+                <div class="form-group">
+                    <label for="book-publisher">Editorial</label>
+                    <input type="text" id="book-publisher" name="book-publisher" required maxlength="100" placeholder="Ingrese la editorial">
+                </div>
+                <div class="form-group">
+                    <label for="book-isbn">ISBN</label>
+                    <input type="text" id="book-isbn" name="book-isbn" required maxlength="20" placeholder="Ingrese el ISBN">
+                </div>
+                <div class="form-group">
+                    <label for="book-publicationYear">Año de Publicación</label>
+                    <input type="number" id="book-publicationYear" name="book-publicationYear" required min="1800" max="2025" placeholder="Ingrese el año de publicación">
+                </div>
+                <div class="form-group">
+                    <label for="book-category">Categoría</label>
+                    <input type="text" id="book-category" name="book-category" required maxlength="50" placeholder="Ingrese la categoría">
+                </div>
+                <div class="form-group">
+                    <label for="book-status">Estado</label>
+                    <select id="book-status" name="book-status" required>
+                        <option value="true">Disponible</option>
+                        <option value="false">No disponible</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-button">Agregar Libro</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 TECHNOVA. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/Book.js"></script> <!-- Vincula tu archivo JavaScript -->
+</body>
+</html>

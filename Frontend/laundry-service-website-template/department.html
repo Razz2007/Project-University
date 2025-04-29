@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>TechNova Universidad - Departamentos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuente Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Iconos de Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <!-- Hoja de estilos unificada -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Banner de navegación -->
+    <div class="banner-nav">
+        <div class="logo">
+            <a href="">
+                <span>TECH</span>NOVA
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="degree.html">Grados</a>
+            <a href="book.html">Libros</a>
+            <a href="classroom.html">Aulas</a>
+            <a href="course.html">Cursos</a>
+            <a href="department.html" class="active">Departamento</a>
+            <a href="enrollment.html">Inscripciones</a>
+            <a href="library.html">Librería</a>
+            <a href="professor.html">Profesores</a>
+            <a href="student.html">Estudiantes</a>
+            <a href="loan.html">Préstamos</a>
+        </nav>
+    </div>
+    
+    <!-- Sección Hero -->
+    <div class="hero">
+        <h1>Departamentos</h1>
+        <p>Descubre los departamentos que fortalecen nuestra institución y su liderazgo en innovación.</p>
+    </div>
+    
+    <!-- Contenedor de búsqueda para departamentos -->
+    <div class="search-container">
+        <input type="text" id="search-department" placeholder="Buscar departamento...">
+        <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
+    </div>
+    
+    <!-- Contenedor para el listado y registro -->
+    <div class="container">
+        <!-- Listado de departamentos -->
+        <div id="department-list">
+            <h2 class="section-title">Lista de Departamentos</h2>
+            <!-- Aquí se agregarán dinámicamente las tarjetas de cada departamento -->
+        </div>
+        
+        <!-- Formulario de registro -->
+        <h2 class="section-title">Agregar Nuevo Departamento</h2>
+        <div class="form-container">
+            <h3 class="form-title">Formulario de Registro de Departamento</h3>
+            <form id="department-form">
+                <div class="form-group">
+                    <label for="dept-name">Nombre del Departamento</label>
+                    <input type="text" id="dept-name" name="dept-name" required maxlength="100" placeholder="Ingrese el nombre del departamento">
+                </div>
+                <div class="form-group">
+                    <label for="dept-location">Ubicación</label>
+                    <input type="text" id="dept-location" name="dept-location" required maxlength="100" placeholder="Ingrese la ubicación">
+                </div>
+                <div class="form-group">
+                    <label for="dept-director">Director</label>
+                    <input type="text" id="dept-director" name="dept-director" required maxlength="50" placeholder="Ingrese el nombre del director">
+                </div>
+                <div class="form-group">
+                    <label for="dept-budget">Presupuesto</label>
+                    <input type="number" id="dept-budget" name="dept-budget" required placeholder="Ingrese el presupuesto">
+                </div>
+                <button type="submit" class="submit-button">Agregar Departamento</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 TECHNOVA. Todos los derechos reservados.</p>
+    </footer>
+    
+    <!-- Archivo JavaScript para manejar las operaciones (cargar, registrar, actualizar, etc.) -->
+    <script src="js/Department.js"></script>
+</body>
+</html>

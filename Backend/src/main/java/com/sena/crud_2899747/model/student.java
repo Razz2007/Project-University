@@ -38,12 +38,17 @@ public class student {
     @JoinColumn(name = "degree_id", nullable = false)
     private degree degreeId;
 
+    @Column(name = "status", nullable = false, columnDefinition = "boolean default true")
+    private boolean status;
+
+
     // Constructor vacío
-    public student() {}
+    public student() {
+    }
 
     // Constructor con parámetros
-    public student(int studentId, String firstName, String lastName, String birthDate, 
-                   String email, String phone, String address, degree degreeId) {
+    public student(int studentId, String firstName, String lastName, String birthDate,
+            String email, String phone, String address, degree degreeId, boolean status) {
         this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -117,5 +122,12 @@ public class student {
 
     public void setDegreeId(degree degreeId) {
         this.degreeId = degreeId;
+    }
+    public boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

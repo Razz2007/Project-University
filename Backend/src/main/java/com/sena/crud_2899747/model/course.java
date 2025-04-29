@@ -4,8 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 
 @Entity(name = "course")
 public class course {
@@ -26,22 +24,24 @@ public class course {
     @Column(name = "prerequisites", length = 200, nullable = true)
     private String prerequisites;
 
-     @ManyToOne
-    @JoinColumn(name = "department_id")
-    private department department;
-    @ManyToOne
-    @JoinColumn(name = "professor_id")
-    private professor professor;
+    @Column(name="status",nullable =false, columnDefinition = "boolean default true ")
+    private boolean status;
 
-
+    // Constructor vacío (sin parámetros)
+    public course() {
+    }
     // Constructor con parámetros
-    public course(int courseId, String name, int credits, String level, String prerequisites) {
+    public course(int courseId, String name, int credits, String level, String prerequisites, boolean status) {
         this.courseId = courseId;
         this.name = name;
         this.credits = credits;
         this.level = level;
         this.prerequisites = prerequisites;
+        this.status = status;
     }
+
+ 
+
 
     // Getters y Setters
     public int getCourseId() {
@@ -82,6 +82,12 @@ public class course {
 
     public void setPrerequisites(String prerequisites) {
         this.prerequisites = prerequisites;
+    }
+    public boolean isStatus() {
+        return status;
+    }
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
 

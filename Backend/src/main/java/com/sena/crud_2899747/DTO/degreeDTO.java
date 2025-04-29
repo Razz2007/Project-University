@@ -26,11 +26,11 @@ public class degreeDTO {
         this.name = name;
     }
 
-    public int getDurationYears() {
+    public int getDuration_years() {
         return duration_years;
     }
 
-    public void setDurationYears(int duration_years) {
+    public void setDuration_years(int duration_years) {
         this.duration_years = duration_years;
     }
 

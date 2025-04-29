@@ -1,25 +1,19 @@
     package com.sena.crud_2899747.model;
 
-
-
     import jakarta.persistence.Column;
     import jakarta.persistence.Entity;
     import jakarta.persistence.GeneratedValue;
     import jakarta.persistence.GenerationType;
     import jakarta.persistence.Id;
-    import jakarta.persistence.JoinColumn;
-    import jakarta.persistence.ManyToOne;
-
-    @Entity (name = "book")
+    @Entity(name = "book")
     public class book {
+
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "book_id")
         private int bookId;
 
-        @ManyToOne
-        @JoinColumn(name = "library_id")
-        private library library; 
+        // Evitamos problemas de serialización en la relación ManyToOne
 
 
         @Column(name = "title", length = 200, nullable = false)
@@ -40,8 +34,15 @@
         @Column(name = "category", length = 50, nullable = false)
         private String category;
 
+        @Column(name = "status", nullable = false, columnDefinition = "boolean default true")
+        private boolean status;
 
-        public book(int bookId, String title, String author, String publisher, String isbn, int publicationYear, String category) {
+        // Constructor sin parámetros
+        public book() {
+        }
+
+        // Constructor con todos los parámetros – se asigna también el valor de status
+        public book(int bookId, String title, String author, String publisher, String isbn, int publicationYear, String category, boolean status) {
             this.bookId = bookId;
             this.title = title;
             this.author = author;
@@ -49,6 +50,7 @@
             this.isbn = isbn;
             this.publicationYear = publicationYear;
             this.category = category;
+            this.status = status;  // Se asigna el valor de status
         }
 
         // Getters y Setters
@@ -107,5 +109,12 @@
         public void setCategory(String category) {
             this.category = category;
         }
-    }
 
+        public boolean isStatus() {
+            return status;
+        }
+
+        public void setStatus(boolean status) {
+            this.status = status;
+        }
+    }

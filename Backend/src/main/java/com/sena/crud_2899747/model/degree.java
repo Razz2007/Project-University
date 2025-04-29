@@ -20,8 +20,8 @@ public class degree {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "degree_id")
-    private int degree_id;
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "name",length = 100, nullable = false)
     private String name;
@@ -40,8 +40,8 @@ public class degree {
 
     public degree(){}
 
-    public degree(int degree_id, String name, int duration_years, String coordinator, String faculty, boolean status) {
-        this.degree_id = degree_id;
+    public degree(int id, String name, int duration_years, String coordinator, String faculty, boolean status) {
+        this.id = id;
         this.name = name;
         this.duration_years = duration_years;
         this.coordinator = coordinator;
@@ -49,12 +49,12 @@ public class degree {
         this.status = status;
     }
 
-    public int getDegreeId() {
-        return degree_id;
+    public int getId() {
+        return id;
     }
 
-    public void setDegreeId(int degree_id) {
-        this.degree_id = degree_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -65,11 +65,11 @@ public class degree {
         this.name = name;
     }
 
-    public int getDurationYears() {
+    public int getDuration_years() {
         return duration_years;
     }
 
-    public void setDurationYears(int duration_years) {
+    public void setDuration_years(int duration_years) {
         this.duration_years = duration_years;
     }
 

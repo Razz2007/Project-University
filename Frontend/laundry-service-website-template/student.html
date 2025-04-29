@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>TechNova Universidad - Estudiantes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="banner-nav">
+        <div class="logo">
+            <a href="">
+                <span>TECH</span>NOVA
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="degree.html">Grados</a>
+            <a href="book.html">Libros</a>
+            <a href="classroom.html">Aulas</a>
+            <a href="course.html">Cursos</a>
+            <a href="department.html">Departamento</a>
+            <a href="enrollment.html">Inscripciones</a>
+            <a href="library.html">Librería</a>
+            <a href="professor.html">Profesores</a>
+            <a href="student.html" class="active">Estudiantes</a>
+            <a href="loan.html">Préstamos</a>
+        </nav>
+    </div>
+    
+    <div class="hero">
+        <h1>Estudiantes</h1>
+        <p>Explora la lista de estudiantes registrados y añade nuevos registros.</p>
+    </div>
+
+    <!-- Contenedor de búsqueda -->
+    <div class="search-container">
+        <input type="text" id="search-student" placeholder="Buscar estudiante por nombre...">
+        <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
+    </div>
+
+    <!-- Contenedor donde se mostrarán los estudiantes -->
+    <div class="container">      
+        <h2 class="section-title">Lista de Estudiantes</h2>
+        <div id="students-list">
+            <!-- Aquí se agregarán las tarjetas de los estudiantes -->
+        </div>
+        
+        <!-- Formulario de registro -->
+        <h2 class="section-title">Agregar Nuevo Estudiante</h2>
+        <div class="form-container">
+            <h3 class="form-title">Formulario de Registro de Estudiante</h3>
+            <form id="student-form">
+                <div class="form-group">
+                    <label for="student-firstname">Nombre</label>
+                    <input type="text" id="student-firstname" name="student-firstname" required maxlength="50" placeholder="Ingrese el nombre">
+                </div>                
+                <div class="form-group">
+                    <label for="student-lastname">Apellido</label>
+                    <input type="text" id="student-lastname" name="student-lastname" required maxlength="50" placeholder="Ingrese el apellido">
+                </div>
+                <div class="form-group">
+                    <label for="student-birthdate">Fecha de Nacimiento</label>
+                    <input type="date" id="student-birthdate" name="student-birthdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="student-email">Correo Electrónico</label>
+                    <input type="email" id="student-email" name="student-email" required maxlength="100" placeholder="Ingrese el correo">
+                </div>
+                <div class="form-group">
+                    <label for="student-phone">Teléfono</label>
+                    <input type="text" id="student-phone" name="student-phone" required maxlength="15" placeholder="Ingrese el teléfono">
+                </div>
+                <div class="form-group">
+                    <label for="student-address">Dirección</label>
+                    <input type="text" id="student-address" name="student-address" required maxlength="150" placeholder="Ingrese la dirección">
+                </div>
+                <div class="form-group">
+                    <label for="student-degree">Grado Académico</label>
+                    <select id="student-degree" name="student-degree" required>
+                        <option value="">Seleccione un grado académico</option>
+                        <!-- Aquí se agregarán opciones dinámicamente -->
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-button">Agregar Estudiante</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 TECHNOVA. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/Student.js"></script> <!-- Vincula tu archivo JavaScript -->
+</body>
+</html>

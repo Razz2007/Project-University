@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>TechNova Universidad - Bibliotecas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="banner-nav">
+        <div class="logo">
+            <a href="">
+                <span>TECH</span>NOVA
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="degree.html">Grados</a>
+            <a href="book.html">Libros</a>
+            <a href="classroom.html">Aulas</a>
+            <a href="course.html">cursos</a>
+            <a href="department.html">departamento</a>
+            <a href="enrollment.html">Inscripciones</a>
+            <a href="library.html" class="active">Librería</a>
+            <a href="professor.html">Profesores</a>
+            <a href="student.html">Estudiantes</a>
+            <a href="loan.html">Préstamos</a>
+        </nav>
+    </div>
+    
+    <div class="hero">
+        <h1>Bibliotecas</h1>
+        <p>Explora nuestros espacios para el estudio, la cultura y la investigación.</p>
+    </div>
+
+    <!-- Contenedor de búsqueda -->
+    <div class="search-container">
+        <input type="text" id="search-library" placeholder="Buscar biblioteca...">
+    </div>
+
+    <!-- Contenedor donde se mostrarán las bibliotecas -->
+    <div class="container">
+        <div id="universitarias" class="tab-content active">
+            <h2 class="section-title">Bibliotecas Universitarias</h2>
+            <!-- Aquí se agregarán las tarjetas de las bibliotecas universitarias -->
+        </div>
+        
+        <div id="publicas" class="tab-content">
+            <h2 class="section-title">Bibliotecas Públicas</h2>
+            <!-- Aquí se agregarán las tarjetas de las bibliotecas públicas -->
+        </div>
+        
+        <div id="digitales" class="tab-content">
+            <h2 class="section-title">Bibliotecas Digitales</h2>
+            <!-- Aquí se agregarán las tarjetas de las bibliotecas digitales -->
+        </div>
+        
+        <!-- Formulario de registro -->
+        <h2 class="section-title">Agregar Nueva Biblioteca</h2>
+        <div class="form-container">
+            <h3 class="form-title">Formulario de Registro de Biblioteca</h3>
+            <form id="library-form">
+                <div class="form-group">
+                    <label for="library-name">Nombre de la Biblioteca</label>
+                    <input type="text" id="library-name" name="library-name" required maxlength="100" placeholder="Ingrese el nombre de la biblioteca">
+                </div>
+                
+                <div class="form-group">
+                    <label for="library-location">Ubicación</label>
+                    <input type="text" id="library-location" name="library-location" required maxlength="100" placeholder="Ingrese la ubicación">
+                </div>
+                
+                <div class="form-group">
+                    <label for="opening-time">Hora de Apertura</label>
+                    <input type="time" id="opening-time" name="opening-time" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="closing-time">Hora de Cierre</label>
+                    <input type="time" id="closing-time" name="closing-time" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="library-capacity">Capacidad</label>
+                    <input type="number" id="library-capacity" name="library-capacity" required min="1" placeholder="Ingrese la capacidad">
+                </div>
+                
+                <button type="submit" class="submit-button">Agregar Biblioteca</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 TECHNOVA. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/Library.js"></script>
+</body>
+</html>

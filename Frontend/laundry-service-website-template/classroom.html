@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>TechNova Universidad - Aulas Académicas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="banner-nav">
+        <div class="logo">
+            <a href="">
+                <span>TECH</span>NOVA
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="degree.html">Grados</a>
+            <a href="book.html">Libros</a>
+            <a href="classroom.html" class="active">Aulas</a>
+            <a href="course.html">Cursos</a>
+            <a href="department.html">Departamento</a>
+            <a href="enrollment.html">Inscripciones</a>
+            <a href="library.html">Librería</a>
+            <a href="professor.html">Profesores</a>
+            <a href="student.html">Estudiantes</a>
+            <a href="loan.html">Préstamos</a>
+        </nav>
+    </div>
+    
+    <div class="hero">
+        <h1>Aulas Académicas</h1>
+        <p>Consulta y gestiona las aulas disponibles en nuestra universidad.</p>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="search-classroom" placeholder="Buscar aula...">
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Lista de Aulas</h2>
+        <div id="classroom-list">
+            <!-- Aquí se agregarán dinámicamente las aulas -->
+        </div>
+
+        <h2 class="section-title">Agregar Nueva Aula</h2>
+        <div class="form-container">
+            <h3 class="form-title">Formulario de Registro de Aula</h3>
+            <form id="classroom-form">
+                <div class="form-group">
+                    <label for="classroom-name">Nombre del Aula</label>
+                    <input type="text" id="classroom-name" name="classroom-name" required maxlength="50" placeholder="Ingrese el nombre del aula">
+                </div>
+                <div class="form-group">
+                    <label for="classroom-building">Edificio</label>
+                    <input type="number" id="classroom-building" name="classroom-building" required placeholder="Número de edificio">
+                </div>
+                <div class="form-group">
+                    <label for="classroom-capacity">Capacidad</label>
+                    <input type="number" id="classroom-capacity" name="classroom-capacity" required placeholder="Cantidad máxima de estudiantes">
+                </div>
+                <div class="form-group">
+                    <label for="classroom-type">Tipo de Aula</label>
+                    <input type="text" id="classroom-type" name="classroom-type" required placeholder="Ejemplo: Laboratorio, Sala de conferencias">
+                </div>
+                <div class="form-group">
+                    <label for="classroom-projector">¿Tiene proyector?</label>
+                    <select id="classroom-projector" name="classroom-projector">
+                        <option value="1">Sí</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-button">Agregar Aula</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 TECHNOVA. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/Classroom.js"></script>
+</body>
+</html>

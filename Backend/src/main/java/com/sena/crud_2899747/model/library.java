@@ -12,62 +12,77 @@ public class library {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "library_id")
-    private int library_id;
+    private int libraryId;
 
-    @Column (name = "name_library",length = 100, nullable = false)
-    private String name_library;
+    @Column(name = "name_library", length = 100, nullable = false)
+    private String nameLibrary;
     
-    @Column (name = "location",length = 100, nullable = false)
+    @Column(name = "location", length = 100, nullable = false)
     private String location;
 
-    @Column (name = "opening_time", nullable = false)
-    private  LocalTime opening_time;
+    @Column(name = "opening_time", nullable = false)
+    private LocalTime openingTime;
 
-    @Column (name = "Closing_time", nullable = false)
-    private  LocalTime closing_time;
+    @Column(name = "closing_time", nullable = false)
+    private LocalTime closingTime;
 
-    @Column (name = "capacity",length = 11, nullable = false)
+    @Column(name = "capacity", nullable = false)
     private int capacity;
+    
+    @Column(name = "status", nullable = false, columnDefinition = "boolean default true")
+    private boolean status;
 
-    public library(int library_id,String name_library,String location,LocalTime opening_time,LocalTime closing_time,int capacity){
-        this.library_id = library_id;
-        this.name_library = name_library;
+    public library() {
+    }
+
+    public library(int libraryId, String nameLibrary, String location, LocalTime openingTime, LocalTime closingTime, int capacity, boolean status) {
+        this.libraryId = libraryId;
+        this.nameLibrary = nameLibrary;
         this.location = location;
-        this.opening_time = opening_time;
-        this.closing_time = closing_time;
-        this.capacity = capacity;   
+        this.openingTime = openingTime;
+        this.closingTime = closingTime;
+        this.capacity = capacity;
+        this.status = status;
     }
 
-    public int getLibrary_id() {
-        return library_id;
+    public int getLibraryId() {
+        return libraryId;
     }
 
-    public void setLibrary_id(int library_id) {
-        this.library_id = library_id;
+    public void setLibraryId(int libraryId) {
+        this.libraryId = libraryId;
     }
 
-    public String getName_library() {
-        return name_library;
+    public String getNameLibrary() {
+        return nameLibrary;
     }
 
-    public void setName_library(String name_library) {
-        this.name_library = name_library;
+    public void setNameLibrary(String nameLibrary) {
+        this.nameLibrary = nameLibrary;
     }
 
     public String getLocation() {
         return location;
     }
 
-    public void setOpening_time(LocalTime opening_time) {
-        this.opening_time = opening_time;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public LocalTime getClosing_time() {
-        return closing_time;
+    public LocalTime getOpeningTime() {
+        return openingTime;
     }
 
-    public void setClosing_time(LocalTime closing_time) {
-        this.closing_time = closing_time;
+    public void setOpeningTime(LocalTime openingTime) {
+        this.openingTime = openingTime;
+    }
+
+    public LocalTime getClosingTime() {
+        return closingTime;
+    }
+
+    public void setClosingTime(LocalTime closingTime) {
+        this.closingTime = closingTime;
     }
 
     public int getCapacity() {
@@ -76,5 +91,13 @@ public class library {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

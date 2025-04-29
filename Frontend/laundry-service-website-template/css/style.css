@@ -1,5 +1,7 @@
-/* Reset and Base Styles */
-* {
+/* ============================================
+   Reset and Base Styles
+   ============================================ */
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,7 +13,9 @@ body {
     line-height: 1.6;
 }
 
-/* Header and Navigation */
+/* ============================================
+   Header and Navigation
+   ============================================ */
 header, .banner-nav {
     background: linear-gradient(to right, #3498db, #2980b9);
     color: white;
@@ -61,9 +65,28 @@ nav a:hover {
     color: #f1c40f;
 }
 
-/* Hero Section */
+.nav-links a.active {
+    color: #f1c40f;
+    position: relative;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #f1c40f;
+    animation: navIndicator 0.3s ease-in-out;
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
 .hero {
-    background: linear-gradient(rgba(52, 152, 219, 0.8), rgba(41, 128, 185, 0.8)), url('https://source.unsplash.com/random/1600x900?technology');
+    background: linear-gradient(rgba(52, 152, 219, 0.8), rgba(41, 128, 185, 0.8)),
+                url('https://source.unsplash.com/random/1600x900?technology');
     background-size: cover;
     background-position: center;
     color: white;
@@ -82,14 +105,15 @@ nav a:hover {
     margin: 0 auto;
 }
 
-/* Container */
+/* ============================================
+   Container and Section Titles
+   ============================================ */
 .container {
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-/* Section Titles */
 .section-title {
     font-size: 2rem;
     color: #2980b9;
@@ -97,8 +121,10 @@ nav a:hover {
     margin-bottom: 30px;
 }
 
-/* Tabs */
-.degrees-tabs {
+/* ============================================
+   Tabs (Generic)
+   ============================================ */
+.tabs {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
@@ -139,89 +165,231 @@ nav a:hover {
     display: block;
 }
 
-/* Cards */
-.degrees-grid, .cards {
+/* ============================================
+   Cards Grid
+   ============================================ */
+.cards-grid, .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
     margin-bottom: 50px;
 }
 
-.degree-card, .card {
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
+/* ============================================
+   Generic Card Styles
+   ============================================ */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 1;
+    display: block;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.card:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transform: translateY(-2px);
 }
 
-.degree-card:hover, .card:hover {
-    transform: translateY(-10px);
-}
-
-.degree-header {
-    padding: 20px;
-    background-color: #2980b9;
-    color: white;
-}
-
-.degree-header h3 {
-    margin-bottom: 5px;
-    font-size: 1.3rem;
-}
-
-.degree-type {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    background-color: rgba(255, 255, 255, 0.2);
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 15px;
-}
-
-.degree-content, .card {
-    padding: 20px;
-}
-
-.degree-content p, .card p {
-    color: #666;
-    margin-bottom: 15px;
-}
-
+/* Style for images inside cards */
 .card img {
-    max-width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: block;
     margin-bottom: 15px;
 }
 
-.degree-meta {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #f9f9f9;
-    border-top: 1px solid #eee;
-    font-size: 0.9rem;
-    color: #666;
+/* Card Content */
+.card-content {
+    padding: 20px;
 }
 
-.button, .degree-content .button {
-    display: inline-block;
-    background-color: #2980b9;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-decoration: none;
+.card-title {
+    font-size: 1.5rem;
     font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.card-info {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #555;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+/* Card Actions */
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
-.button:hover, .degree-content .button:hover {
+.edit-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #0b7dda;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* States for filtering */
+.card.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.card.filter-hidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card.filter-visible {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ============================================
+   No Results Message
+   ============================================ */
+.no-results {
+    text-align: center;
+    color: #777;
+    font-size: 1.2rem;
+    margin-top: 50px;
+    display: none;
+    margin-top: 30px;
+}
+
+.no-results p {
+    font-style: italic;
+}
+
+.no-results.active {
+    display: block;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.card.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.card.hidden {
+    display: none;
+    animation: fadeOut 0.5s ease-in-out;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px auto;
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 800px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el input de búsqueda dentro del contenedor */
+.search-container input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.search-container input:focus {
+    border-color: #2980b9;
+    outline: none;
+}
+
+/* Estilos para el botón de búsqueda */
+.search-container button {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
     background-color: #3498db;
 }
 
-/* Form */
+/* ============================================
+   Search Button
+   ============================================ */
+#search-button {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: #3498db;
+}
+
+#search-button:focus {
+    outline: none;
+}
+
+/* ============================================
+   Form Styles
+   ============================================ */
 .form-container {
     background-color: white;
     border-radius: 10px;
@@ -236,10 +404,11 @@ nav a:hover {
     color: #2980b9;
     margin-bottom: 20px;
     text-align: center;
+    font-family: 'Open Sans', Arial, sans-serif;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .form-group label {
@@ -247,6 +416,7 @@ nav a:hover {
     margin-bottom: 5px;
     font-weight: bold;
     color: #333;
+    font-family: 'Open Sans', Arial, sans-serif;
 }
 
 .form-group input,
@@ -257,6 +427,7 @@ nav a:hover {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
+    font-family: 'Open Sans', Arial, sans-serif;
 }
 
 .form-group textarea {
@@ -266,7 +437,7 @@ nav a:hover {
 
 .submit-button {
     background-color: #2980b9;
-    color: white;
+    color: #fdfdfd;
     border: none;
     padding: 12px 20px;
     border-radius: 5px;
@@ -282,7 +453,184 @@ nav a:hover {
     background-color: #3498db;
 }
 
-/* Footer */
+/* ============================================
+   Modal Styles
+   ============================================ */
+/* Estilos para los modales */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    padding: 24px;
+    position: relative;
+    animation: slideIn 0.3s ease;
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Estilos para diferentes tipos de modales */
+  .modal-content.success {
+    border-top: 4px solid #4CAF50;
+  }
+  
+  .modal-content.error {
+    border-top: 4px solid #F44336;
+  }
+  
+  .modal-content.warning {
+    border-top: 4px solid #FF9800;
+  }
+  
+  .modal-content h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+  
+  .modal-content p {
+    color: #666;
+    margin-bottom: 24px;
+  }
+  
+  /* Botón para cerrar el modal */
+  .close-modal {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+  }
+  
+  .close-modal:hover {
+    color: #333;
+  }
+  
+  /* Estilos para los botones dentro del modal */
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    border: none;
+  }
+  
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  
+  .btn:active {
+    transform: translateY(1px);
+  }
+  
+  .ok-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .ok-btn:hover {
+    background-color: #3e8e41;
+  }
+  
+  .cancel-btn {
+    background-color: #f1f1f1;
+    color: #333;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .delete-btn {
+    background-color: #F44336;
+    color: white;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  .submit-btn {
+    background-color: #2196F3;
+    color: white;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0b7dda;
+  }
+  
+  /* Estilos para los formularios dentro de los modales */
+  .form-group {
+    margin-bottom: 16px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+  }
+  
+  /* Animación para cuando un modal se cierra */
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+  .modal-closing {
+    animation: fadeOut 0.3s ease forwards;
+  }
+
+/* ============================================
+   Footer Styles
+   ============================================ */
 footer, .footer {
     background-color: #2c3e50;
     color: white;
@@ -290,23 +638,10 @@ footer, .footer {
     padding: 20px;
     margin-top: 50px;
 }
-.nav-links a.active {
-    color: #f1c40f;
-    position: relative;
-}
 
-/* Animation for the active navigation item */
-.nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #f1c40f;
-    animation: navIndicator 0.3s ease-in-out;
-}
-
+/* ============================================
+   Navigation Indicator Animation
+   ============================================ */
 @keyframes navIndicator {
     from {
         width: 0;
@@ -318,28 +653,44 @@ footer, .footer {
     }
 }
 
-/* Smooth scrolling for the page */
-html {
-    scroll-behavior: smooth;
-}
-/* Responsive Design */
+/* ============================================
+   Responsive Styles
+   ============================================ */
 @media (max-width: 768px) {
-    .banner-nav .nav-links, 
-    .cards,
-    .degrees-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .card, .degree-card {
-        margin-bottom: 20px;
-    }
-    
-    .degrees-tabs {
+    .banner-nav {
         flex-direction: column;
-        align-items: center;
+        padding: 10px;
+    }
+    
+    .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero {
+        padding: 40px 10px;
     }
     
     .hero h1 {
         font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+    
+    .cards,
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        margin-bottom: 20px;
+    }
+    
+    .tabs {
+        flex-direction: column;
+        align-items: center;
     }
 }

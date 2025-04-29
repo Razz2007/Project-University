@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>TechNova Universidad - Préstamos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="banner-nav">
+        <div class="logo">
+            <a href="">
+                <span>TECH</span>NOVA
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="degree.html">Grados</a>
+            <a href="book.html">Libros</a>
+            <a href="classroom.html">Aulas</a>
+            <a href="course.html">Cursos</a>
+            <a href="department.html">Departamento</a>
+            <a href="enrollment.html">Inscripciones</a>
+            <a href="library.html">Librería</a>
+            <a href="professor.html">Profesores</a>
+            <a href="student.html">Estudiantes</a>
+            <a href="loan.html" class="active">Préstamos</a>
+        </nav>
+    </div>
+    
+    <div class="hero">
+        <h1>Préstamos</h1>
+        <p>Gestiona los préstamos de libros para estudiantes de la universidad.</p>
+    </div>
+
+    <!-- Contenedor de búsqueda -->
+    <div class="search-container">
+        <input type="text" id="search-loan" placeholder="Buscar préstamo por estudiante...">
+        <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
+    </div>
+
+    <!-- Contenedor donde se mostrarán los préstamos -->
+    <div class="container">      
+        <h2 class="section-title">Lista de Préstamos</h2>
+        <div id="loans-list">
+            <!-- Aquí se agregarán los préstamos dinámicamente -->
+        </div>
+        
+        <!-- Formulario de registro -->
+        <h2 class="section-title">Registrar Nuevo Préstamo</h2>
+        <div class="form-container">
+            <h3 class="form-title">Formulario de Préstamo</h3>
+            <form id="loan-form">
+                <div class="form-group">
+                    <label for="student-id">Estudiante</label>
+                    <select id="student-id" name="student-id" required>
+                        <option value="">Seleccione un estudiante</option>
+                        <!-- Opciones dinámicas -->
+                    </select>
+                </div>                
+                <div class="form-group">
+                    <label for="book-id">Libro</label>
+                    <select id="book-id" name="book-id" required>
+                        <option value="">Seleccione un libro</option>
+                        <!-- Opciones dinámicas -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="loan-date">Fecha de Préstamo</label>
+                    <input type="date" id="loan-date" name="loan-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="return-date">Fecha de Devolución</label>
+                    <input type="date" id="return-date" name="return-date">
+                </div>
+                <div class="form-group">
+                    <label for="loan-status">Estado</label>
+                    <select id="loan-status" name="loan-status" required>
+                        <option value="true">Activo</option>
+                        <option value="false">Finalizado</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-button">Registrar Préstamo</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 TECHNOVA. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/Loan.js"></script> <!-- Vincula tu archivo JavaScript -->
+</body>
+</html>

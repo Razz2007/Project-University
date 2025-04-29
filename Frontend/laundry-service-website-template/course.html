@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>TechNova Universidad - Cursos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="banner-nav">
+        <div class="logo">
+            <a href="">
+                <span>TECH</span>NOVA
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="degree.html">Grados</a>
+            <a href="book.html">Libros</a>
+            <a href="classroom.html">Aulas</a>
+            <a href="course.html" class="active">Cursos</a>
+            <a href="department.html">Departamento</a>
+            <a href="enrollment.html">Inscripciones</a>
+            <a href="library.html">Librería</a>
+            <a href="professor.html">Profesores</a>
+            <a href="student.html">Estudiantes</a>
+            <a href="loan.html">Préstamos</a>
+        </nav>
+    </div>
+    
+    <div class="hero">
+        <h1>Cursos</h1>
+        <p>Consulta la lista de cursos disponibles y agrega nuevos registros.</p>
+    </div>
+
+    <!-- Contenedor de búsqueda -->
+    <div class="search-container">
+        <input type="text" id="search-course" placeholder="Buscar curso por nombre o nivel...">
+        <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
+    </div>
+
+    <!-- Contenedor donde se mostrarán los cursos -->
+    <div class="container">      
+        <h2 class="section-title">Lista de Cursos</h2>
+        <div id="courses-list">
+            <!-- Aquí se agregarán las tarjetas de los cursos -->
+        </div>
+        
+        <!-- Formulario de registro -->
+        <h2 class="section-title">Agregar Nuevo Curso</h2>
+        <div class="form-container">
+            <h3 class="form-title">Formulario de Registro de Curso</h3>
+            <form id="course-form">
+                <div class="form-group">
+                    <label for="course-name">Nombre del Curso</label>
+                    <input type="text" id="course-name" name="course-name" required maxlength="100" placeholder="Ingrese el nombre del curso">
+                </div>                
+                <div class="form-group">
+                    <label for="course-credits">Créditos</label>
+                    <input type="number" id="course-credits" name="course-credits" required min="1" max="10" placeholder="Ingrese el número de créditos">
+                </div>
+                <div class="form-group">
+                    <label for="course-level">Nivel</label>
+                    <select id="course-level" name="course-level" required>
+                        <option value="">Seleccione un nivel</option>
+                        <option value="Básico">Básico</option>
+                        <option value="Intermedio">Intermedio</option>
+                        <option value="Avanzado">Avanzado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="course-prerequisites">Prerrequisitos</label>
+                    <input type="text" id="course-prerequisites" name="course-prerequisites" maxlength="200" placeholder="Ingrese los prerrequisitos">
+                </div>
+                <div class="form-group">
+                    <label for="course-status">Estado</label>
+                    <select id="course-status" name="course-status" required>
+                        <option value="true">Disponible</option>
+                        <option value="false">No disponible</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-button">Agregar Curso</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 TECHNOVA. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/Course.js"></script> <!-- Vincula tu archivo JavaScript -->
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

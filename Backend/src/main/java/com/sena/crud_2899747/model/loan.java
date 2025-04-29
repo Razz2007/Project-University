@@ -1,16 +1,7 @@
 package com.sena.crud_2899747.model;
 
 import java.sql.Date;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
 
 @Entity(name = "loan")
 public class loan {
@@ -19,14 +10,13 @@ public class loan {
     @Column(name = "loan_id")
     private int loanId;
 
-      @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "student_id")
     private student student; 
 
     @ManyToOne
     @JoinColumn(name = "book_id")
     private book book; 
-
 
     @Column(name = "loan_date", nullable = false)
     @Temporal(TemporalType.DATE)
@@ -36,22 +26,46 @@ public class loan {
     @Temporal(TemporalType.DATE)
     private Date returnDate;
 
-    @Column(name = "status", length = 20, nullable = false)
-    private String status;
+    @Column(name = "status", nullable = false, columnDefinition = "boolean default true")
+    private boolean status;
 
-    public loan(int loanId, Date loanDate, Date returnDate, String status) {
+    // Constructor vacío
+    public loan() {
+    }
+
+    // Constructor con parámetros
+    public loan(int loanId, student student, book book, Date loanDate, Date returnDate, boolean status) {
         this.loanId = loanId;
+        this.student = student;
+        this.book = book;
         this.loanDate = loanDate;
         this.returnDate = returnDate;
         this.status = status;
     }
 
+    // Getters y Setters
     public int getLoanId() {
         return loanId;
     }
 
     public void setLoanId(int loanId) {
         this.loanId = loanId;
+    }
+
+    public student getStudent() {
+        return student;
+    }
+
+    public void setStudent(student student) {
+        this.student = student;
+    }
+
+    public book getBook() {
+        return book;
+    }
+
+    public void setBook(book book) {
+        this.book = book;
     }
 
     public Date getLoanDate() {
@@ -70,12 +84,11 @@ public class loan {
         this.returnDate = returnDate;
     }
 
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
-
 }

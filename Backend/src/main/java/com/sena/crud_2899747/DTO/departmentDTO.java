@@ -7,8 +7,11 @@ public class departmentDTO {
     private String director;
     private int budget;
 
+    // Constructor vacío
+    public departmentDTO() {
 
-    // Constructor con parámetros
+    }
+    
     public departmentDTO(String name_department, String location_department, String director, int budget) {
         this.name_department = name_department;
         this.location_department = location_department;

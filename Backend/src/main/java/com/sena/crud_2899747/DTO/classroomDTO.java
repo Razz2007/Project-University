@@ -8,6 +8,9 @@ public class classroomDTO {
     private String type;
     private Byte has_projector;
 
+    public classroomDTO() {
+    }   
+
     // Constructor con parámetros
     public classroomDTO(String name_classroom, int building, int capacity, String type, Byte has_projector) {
         this.name_classroom = name_classroom;
